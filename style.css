@@ -1,0 +1,138 @@
+/* style.css — Dark + Sharp Brown (professional) theme for Kritika */
+
+:root{
+  --bg-dark-1: #2b1f1b;
+  --bg-dark-2: #3a2420;
+  --panel: #3f2924;
+  --muted: #cfc2b8;
+  --accent: #d4b27a;
+  --accent-2: #a97a56;
+  --glass: rgba(255,255,255,0.03);
+  --radius: 12px;
+  --max-width: 1120px;
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(140deg, var(--bg-dark-1) 0%, var(--bg-dark-2) 45%, #2e1b16 100%);
+  color:var(--muted);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.6;
+  padding:36px 24px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+}
+
+.wrap{width:100%;max-width:var(--max-width)}
+
+/* NAV */
+.nav{
+  display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-radius:calc(var(--radius) + 2px);
+  background: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.08));
+  box-shadow: 0 10px 30px rgba(13,9,8,0.6);
+  position:relative;
+}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:1.06rem;color:var(--muted)}
+.brand .logo{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,var(--accent-2),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:800;color:#23120e}
+.brand-text{font-weight:700;color:var(--muted)}
+
+.nav-links{display:flex;gap:14px;align-items:center}
+.nav-links a{color:rgba(255,255,255,0.9);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600;opacity:0.85}
+.nav-links a:hover{opacity:1;color:#fff}
+
+.cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#23120e;padding:8px 12px;border-radius:10px;font-weight:800;text-decoration:none;box-shadow:0 8px 18px rgba(0,0,0,0.35)}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 12px;border-radius:8px;color:var(--muted);text-decoration:none}
+
+/* mobile nav toggle */
+.nav-toggle{display:none;background:transparent;border:0;color:var(--muted);font-size:20px;cursor:pointer}
+@media (max-width:880px){
+  .nav-links{display:none;flex-direction:column;position:absolute;right:18px;top:68px;background:var(--panel);padding:12px;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,0.6)}
+  .nav-toggle{display:block}
+}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start;margin-top:22px}
+@media (max-width:920px){.hero{grid-template-columns:1fr}}
+
+.hero-card{
+  position:relative;overflow:hidden;border-radius:var(--radius);padding:34px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.08));
+  box-shadow:0 18px 40px rgba(8,6,5,0.5);
+  border:1px solid rgba(255,255,255,0.03);
+}
+.hero-illustration{position:absolute;right:16px;bottom:-40px;width:260px;max-width:30%;opacity:0.08;pointer-events:none;filter:grayscale(10%)}
+
+h1{font-size:36px;margin:0 0 12px 0;line-height:1.02;color:#fff}
+.accent{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
+.lead{color:rgba(255,255,255,0.82);margin:0 0 18px 0}
+
+.badges{display:flex;gap:8px;flex-wrap:wrap}
+.badge{padding:8px 12px;background:rgba(0,0,0,0.18);border-radius:999px;border:1px solid rgba(255,255,255,0.03);font-weight:700;color:var(--muted);font-size:0.95rem}
+
+.actions{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+.actions a svg{opacity:0.95;vertical-align:middle}
+.actions a:hover svg{transform:scale(1.06);transition:transform .12s}
+
+/* PROFILE SIDEBAR */
+.profile-card{border-radius:var(--radius);padding:20px;background:linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.04));box-shadow:0 12px 30px rgba(8,6,5,0.45);border:1px solid rgba(255,255,255,0.02)}
+.profile-top{display:flex;gap:14px;align-items:center}
+.avatar-wrap{display:flex;align-items:center;gap:12px;margin-top:0}
+.avatar-img{width:88px;height:88px;border-radius:12px;object-fit:cover;display:block;box-shadow:0 8px 30px rgba(0,0,0,0.45);border:2px solid rgba(255,255,255,0.03}
+.avatar-fallback{width:88px;height:88px;border-radius:12px;background:linear-gradient(135deg,var(--accent-2),var(--accent));align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(0,0,0,0.45)}
+.avatar-initials{font-weight:800;color:#23120e;font-size:28px}
+
+.name{font-weight:800;font-size:1.05rem;color:#fff}
+.meta{margin-top:12px}
+.meta p{margin:6px 0;color:var(--muted)}
+
+/* PROJECTS */
+.section{margin-top:18px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:1100px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:700px){.grid{grid-template-columns:1fr}}
+
+.card{position:relative;overflow:hidden;border-radius:12px;padding:18px;background:var(--panel);box-shadow:0 8px 30px rgba(8,6,5,0.45);border:1px solid rgba(255,255,255,0.02);transition:transform .28s ease, box-shadow .28s ease}
+.card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(4,3,3,0.6)}
+.card h3{margin:0 0 8px 0;color:#fff}
+.card p{margin:0 0 12px 0;color:var(--muted)}
+.card a{font-weight:700;color:var(--accent)}
+.card .tag{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;background:rgba(0,0,0,0.12);border:1px solid rgba(255,255,255,0.02);color:var(--muted);margin-top:8px}
+
+/* SKILLS */
+.skills{display:flex;flex-direction:column;gap:12px}
+.skill{display:flex;align-items:center;gap:12px}
+.skill strong{width:140px;color:rgba(255,255,255,0.92)}
+.skill .bar{height:10px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden;flex:1}
+.skill .bar > span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0;transition:width 1000ms cubic-bezier(.2,.9,.3,1)}
+.skill[data-fill='92'] .bar > span{width:92%}
+.skill[data-fill='85'] .bar > span{width:85%}
+.skill[data-fill='78'] .bar > span{width:78%}
+.skill[data-fill='80'] .bar > span{width:80%}
+.skill[data-fill='65'] .bar > span{width:65%}
+.loaded .skill .bar > span{opacity:1}
+
+/* FORM (not used) */
+form.card{display:flex;flex-direction:column;gap:10px}
+form input, form textarea{width:100%;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted)}
+
+/* FOOTER */
+footer{margin-top:28px;text-align:center;color:var(--muted);font-size:14px}
+
+/* helpers */
+.muted{color:var(--muted)}
+.row{display:flex;gap:14px}
+
+/* Accessibility: focus ring */
+a:focus, button:focus, input:focus, textarea:focus{outline:3px solid rgba(168,135,102,0.14);outline-offset:3px}
+
+/* small screen tweaks */
+@media (max-width:520px){
+  body{padding:20px 12px}
+  h1{font-size:26px}
+  .brand{font-size:0.95rem}
+}
