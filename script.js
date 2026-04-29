@@ -1,47 +1,53 @@
-/* script.js — interactive behaviours for multi-page site */
+function opentab(event, tabname){
+    const tablinks = document.querySelectorAll(".tab-links");
+    const tabcontents = document.querySelectorAll(".tab-contents");
 
-// Path to uploaded CV file (local path provided during upload)
-const CV_PATH = '/mnt/data/Kritika.pdf';
+    tablinks.forEach(tablink => {
+        tablink.classList.remove("active-links");
+    });
 
-// Mobile nav toggle
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
-if (navToggle && navLinks) {
-  navToggle.addEventListener('click', () => {
-    const isHidden = getComputedStyle(navLinks).display === 'none';
-    navLinks.style.display = isHidden ? 'flex' : 'none';
-  });
+    tabcontents.forEach(tabcontent => {
+        tabcontent.classList.remove("active-tab");
+    });
 
-  // close the mobile menu when clicking a link
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    if (window.innerWidth <= 880) navLinks.style.display = 'none';
-  }));
+    event.currentTarget.classList.add("active-links");
+    document.getElementById(tabname).classList.add("active-tab");
 }
 
-// Accessibility: keyboard focus ring handling
-document.querySelectorAll('.nav-links a').forEach(a => {
-  a.addEventListener('focus', () => a.style.outline = '3px solid rgba(168,135,102,0.14)');
-  a.addEventListener('blur', () => a.style.outline = 'none');
-});
 
-// Animate skill bars after page load
-function animateSkills() {
-  document.body.classList.add('loaded');
-}
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', animateSkills);
-} else {
-  animateSkills();
-}
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', function(e) {
 
-// Smooth scroll for in-page links (projects anchors)
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', (e) => {
-    const href = a.getAttribute('href');
-    if (href.length > 1) {
+    const targetId = this.getAttribute('href');
+
+    if (targetId.startsWith("#")) {
       e.preventDefault();
-      const target = document.querySelector(href);
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      const target = document.querySelector(targetId);
+
+      if (target) {
+        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+
+        window.scrollTo({
+          top: target.offsetTop - navbarHeight,
+          behavior: "smooth"
+        });
+      }
     }
   });
+});
+
+// Add fade-in class to elements when they come into view
+const faders = document.querySelectorAll(".fade-in");
+
+window.addEventListener("scroll", () => {
+const triggerBottom = window.innerHeight * 0.8;
+
+faders.forEach(el => {
+const boxTop = el.getBoundingClientRect().top;
+
+if(boxTop < triggerBottom){
+el.classList.add("show");
+}
+});
 });
