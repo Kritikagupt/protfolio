@@ -82,7 +82,7 @@ h1{font-size:36px;margin:0 0 12px 0;line-height:1.02;color:#fff}
 .profile-card{border-radius:var(--radius);padding:20px;background:linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.04));box-shadow:0 12px 30px rgba(8,6,5,0.45);border:1px solid rgba(255,255,255,0.02)}
 .profile-top{display:flex;gap:14px;align-items:center}
 .avatar-wrap{display:flex;align-items:center;gap:12px;margin-top:0}
-.avatar-img{width:88px;height:88px;border-radius:12px;object-fit:cover;display:block;box-shadow:0 8px 30px rgba(0,0,0,0.45);border:2px solid rgba(255,255,255,0.03}
+.avatar-img{width:88px;height:88px;border-radius:12px;object-fit:cover;display:block;box-shadow:0 8px 30px rgba(0,0,0,0.45);border:2px solid rgba(255,255,255,0.03)}
 .avatar-fallback{width:88px;height:88px;border-radius:12px;background:linear-gradient(135deg,var(--accent-2),var(--accent));align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(0,0,0,0.45)}
 .avatar-initials{font-weight:800;color:#23120e;font-size:28px}
 
